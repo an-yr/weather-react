@@ -1,0 +1,99 @@
+:root {
+  --primary-color: #46ffa6;
+  --secondary-color: #8146ff;
+  --black: #292b2c;
+  --font: "Anton", sans-serif;
+  --border-radius: 20px;
+}
+.Weather body {
+  color: white;
+}
+.Weather nav {
+  padding-top: 10px;
+}
+.Weather nav input {
+  border: 2px solid white;
+  border-radius: var(--border-radius);
+}
+.Weather nav button {
+  border: 2px solid white;
+  border-radius: 50%;
+  color: white;
+}
+.Weather h1 {
+  font-size: 110px;
+  margin-bottom: 0;
+}
+.Weather h2 {
+  font-size: 40px;
+  margin-bottom: 0;
+}
+.Weather p {
+  font-size: 20px;
+  margin-bottom: 0;
+}
+.Weather .date {
+  position: relative;
+  top: -40px;
+}
+.Weather .temperature-number {
+  font-size: 130px;
+}
+.Weather .degree-unity {
+  font-size: 30px;
+  position: relative;
+  top: -75px;
+}
+
+.Weather .background-day {
+  background-color: var(--primary-color);
+}
+.Weather .background-night {
+  background-color: var(--secondary-color);
+}
+.Weather .color-night {
+  color: var(--black);
+}
+.Weather .black-background {
+  background-color: var(--black);
+}
+.Weather .next-days {
+  position: relative;
+  top: -150px;
+}
+.Weather .day-square {
+  border: 1px solid white;
+  border-radius: var(--border-radius);
+  padding: 10px 30px;
+}
+
+@media (max-width: 576px) {
+  .Weather nav input,
+  .Weather nav button,
+  .Weather .background-day,
+  .Weather .background-night {
+    background-color: var(--black) !important;
+  }
+  .Weather .black-background {
+    text-align: center;
+  }
+  .Weather h2 {
+    font-size: 30px;
+  }
+  .Weather p {
+    font-size: 16px;
+  }
+  .Weather .temperature-number {
+    font-size: 100px;
+  }
+  .Weather .degree-unity {
+    font-size: 24px;
+    position: relative;
+    top: -55px;
+  }
+  .Weather .date,
+  .Weather .next-days {
+    position: relative;
+    top: 0px;
+  }
+}
