@@ -120,7 +120,14 @@ export default function Weather() {
         <footer>
           <p class="text-center mt-5 mt-md-2 mt-lg-0 pb-5 pb-lg-3 mb-0">
             This page was coded by Angela Yuri and is
-            <a href="https://github.com/"> open-source</a>.
+            <a
+              href="https://github.com/an-yr/weather-react"
+              rel="noreferrer"
+              target="_blank"
+            >
+              open-source
+            </a>
+            .
           </p>
         </footer>
       </div>
