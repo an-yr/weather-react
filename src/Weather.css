@@ -32,6 +32,9 @@
   font-size: 20px;
   margin-bottom: 0;
 }
+.Weather a {
+  text-decoration: none;
+}
 .Weather .date {
   position: relative;
   top: -40px;
