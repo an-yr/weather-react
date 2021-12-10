@@ -70,9 +70,9 @@ export default function Weather() {
             <p class="mb-1">{weatherData.weekDay}</p>
             <p class="mb-1">{weatherData.date}</p>
           </div>
-          <div class="text-center me-md-3">
+          <div class="text-center me-md-4">
             <div class="temperature-number mt-4 mt-md-0">
-              {weatherData.temperature}
+              {weatherData.temperature}&nbsp;
               <span class="degree-unity">
                 <a href="https://github.com/">ºC</a> |
                 <a href="https://github.com/">ºF</a>
@@ -118,8 +118,8 @@ export default function Weather() {
           </div>
         </div>
         <footer>
-          <p class="text-center mt-5 mt-md-2 mt-lg-0 pb-5 pb-lg-3 mb-0">
-            This page was coded by Angela Yuri and is
+          <p class="github-link text-center mt-5 mt-md-2 mt-lg-0 pb-5 pb-lg-3 mb-0">
+            This page was coded by Angela Yuri and is&nbsp;
             <a
               href="https://github.com/an-yr/weather-react"
               rel="noreferrer"

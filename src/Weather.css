@@ -66,6 +66,10 @@
   border-radius: var(--border-radius);
   padding: 10px 30px;
 }
+.Weather .github-link {
+  position: relative;
+  top: -50px;
+}
 
 @media (max-width: 576px) {
   .Weather nav input,
@@ -92,7 +96,8 @@
     top: -55px;
   }
   .Weather .date,
-  .Weather .next-days {
+  .Weather .next-days,
+  .Weather .github-link {
     position: relative;
     top: 0px;
   }
