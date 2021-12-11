@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Message from "./Message";
-import FormattedDate from "./FormattedDate";
+import WeahterInfo from "./WeatherInfo";
 import "./Weather.css";
 
 export default function Weather(props) {
+  const [city, setCity] = useState(props.defaultCity);
   const [weatherData, setWeatherData] = useState({ ready: false });
 
   function handleResponse(response) {
@@ -20,6 +21,18 @@ export default function Weather(props) {
   let date = new Date();
   let hour = date.getHours();
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
+  function handleCityChange(event) {
+    setCity(event.target.value);
+  }
+  function search() {
+    let apiKey = `a30e7a3fdc9d7f347177df5b9d2e6526`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/find?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
   if (weatherData.ready) {
     return (
       <div className="Weather">
@@ -31,60 +44,37 @@ export default function Weather(props) {
           }
         >
           <nav className="d-flex justify-content-center justify-content-md-end">
-            <input
-              className={
-                hour >= 0 && hour < 18 ? "background-day" : "background-night"
-              }
-              type="text"
-            />
-            <button
-              className={
-                hour >= 0 && hour < 18
-                  ? "background-day mx-2"
-                  : "background-night mx-2"
-              }
-            >
-              <i className="fas fa-search"></i>
-            </button>
-            <button
-              className={
-                hour >= 0 && hour < 18 ? "background-day" : "background-night"
-              }
-            >
-              <i className="fas fa-map-marker-alt"></i>
-            </button>
+            <form onSubmit={handleSubmit}>
+              <input
+                className={
+                  hour >= 0 && hour < 18 ? "background-day" : "background-night"
+                }
+                type="search"
+                onChange={handleCityChange}
+              />
+              <button
+                className={
+                  hour >= 0 && hour < 18
+                    ? "background-day mx-2"
+                    : "background-night mx-2"
+                }
+                type="submit"
+              >
+                <i className="fas fa-search"></i>
+              </button>
+              <button
+                className={
+                  hour >= 0 && hour < 18 ? "background-day" : "background-night"
+                }
+              >
+                <i className="fas fa-map-marker-alt"></i>
+              </button>
+            </form>
           </nav>
           <Message date={weatherData.date} />
         </div>
         <div className="black-background px-2 px-md-4">
-          <h2
-            className="
-          d-flex
-          justify-content-md-end
-          me-md-5
-          pt-md-3 pt-5
-          justify-content-center
-        "
-          >
-            {weatherData.city.toUpperCase()}
-          </h2>
-          <div className="d-flex flex-column flex-md-row justify-content-between">
-            <FormattedDate date={weatherData.date} />
-
-            <div className="text-center me-md-4">
-              <div className="temperature-number mt-4 mt-md-0">
-                {weatherData.temperature}&nbsp;
-                <span className="degree-unity">
-                  <a href="https://github.com/">ºC</a> |
-                  <a href="https://github.com/">ºF</a>
-                </span>
-              </div>
-              <p className="mt-4 mt-md-0 mb-1 text-capitalize">
-                {weatherData.description}
-              </p>
-              <p>Feels like: {weatherData.feelsLike}º</p>
-            </div>
-          </div>
+          <WeahterInfo data={weatherData} />
           <div
             className="
           d-flex
@@ -137,9 +127,7 @@ export default function Weather(props) {
       </div>
     );
   } else {
-    let apiKey = `a30e7a3fdc9d7f347177df5b9d2e6526`;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/find?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(handleResponse);
+    search();
 
     return <h1>Loading</h1>;
   }
