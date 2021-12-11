@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Message from "./Message";
+import FormattedDate from "./FormattedDate";
 import "./Weather.css";
 
 export default function Weather(props) {
@@ -10,20 +11,14 @@ export default function Weather(props) {
     setWeatherData({
       ready: true,
       city: response.data.list[0].name,
+      date: new Date(response.data.list[0].dt * 1000),
       description: response.data.list[0].weather[0].description,
       feelsLike: Math.round(response.data.list[0].main.feels_like),
       temperature: Math.round(response.data.list[0].main.temp),
     });
   }
-
-  let weatherDataAng = {
-    weekDay: "Sunday",
-    date: "November, 11",
-  };
-
   let date = new Date();
   let hour = date.getHours();
-  let minute = date.getMinutes();
 
   if (weatherData.ready) {
     return (
@@ -59,7 +54,7 @@ export default function Weather(props) {
               <i className="fas fa-map-marker-alt"></i>
             </button>
           </nav>
-          <Message hour={hour} />
+          <Message date={weatherData.date} />
         </div>
         <div className="black-background px-2 px-md-4">
           <h2
@@ -74,17 +69,12 @@ export default function Weather(props) {
             {weatherData.city.toUpperCase()}
           </h2>
           <div className="d-flex flex-column flex-md-row justify-content-between">
-            <div className="date ms-md-3">
-              <p class="mb-1 mt-5 mt-md-4">
-                {hour}:{minute}
-              </p>
-              <p class="mb-1">{weatherDataAng.weekDay}</p>
-              <p class="mb-1">{weatherDataAng.date}</p>
-            </div>
-            <div class="text-center me-md-4">
-              <div class="temperature-number mt-4 mt-md-0">
+            <FormattedDate date={weatherData.date} />
+
+            <div className="text-center me-md-4">
+              <div className="temperature-number mt-4 mt-md-0">
                 {weatherData.temperature}&nbsp;
-                <span class="degree-unity">
+                <span className="degree-unity">
                   <a href="https://github.com/">ºC</a> |
                   <a href="https://github.com/">ºF</a>
                 </span>
@@ -96,7 +86,7 @@ export default function Weather(props) {
             </div>
           </div>
           <div
-            class="
+            className="
           d-flex
           text-center
           next-days
@@ -104,34 +94,34 @@ export default function Weather(props) {
           justify-content-center justify-content-md-start
         "
           >
-            <div class="day-square px-lg-4 py-lg-2 px-1 py-4 py-md-2 m-lg-2 m-1">
+            <div className="day-square px-lg-4 py-lg-2 px-1 py-4 py-md-2 m-lg-2 m-1">
               <p>MON</p>
-              <i class="fas fa-sun p-3"></i>
+              <i className="fas fa-sun p-3"></i>
               <p>24 / 34</p>
             </div>
-            <div class="day-square px-lg-4 py-lg-2 px-1 py-4 py-md-2 m-lg-2 m-1">
+            <div className="day-square px-lg-4 py-lg-2 px-1 py-4 py-md-2 m-lg-2 m-1">
               <p>TUE</p>
-              <i class="fas fa-sun p-3"></i>
+              <i className="fas fa-sun p-3"></i>
               <p>24 / 34</p>
             </div>
-            <div class="day-square px-lg-4 py-lg-2 px-1 py-4 py-md-2 m-lg-2 m-1">
+            <div className="day-square px-lg-4 py-lg-2 px-1 py-4 py-md-2 m-lg-2 m-1">
               <p>WED</p>
-              <i class="fas fa-sun p-3"></i>
+              <i className="fas fa-sun p-3"></i>
               <p>24 / 34</p>
             </div>
-            <div class="day-square px-lg-4 py-lg-2 px-1 py-4 py-md-2 m-lg-2 m-1">
+            <div className="day-square px-lg-4 py-lg-2 px-1 py-4 py-md-2 m-lg-2 m-1">
               <p>THU</p>
-              <i class="fas fa-sun p-3"></i>
+              <i className="fas fa-sun p-3"></i>
               <p>24 / 34</p>
             </div>
-            <div class="day-square px-lg-4 py-lg-2 px-1 py-4 py-md-2 m-lg-2 m-1">
+            <div className="day-square px-lg-4 py-lg-2 px-1 py-4 py-md-2 m-lg-2 m-1">
               <p>FRI</p>
-              <i class="fas fa-sun p-3"></i>
+              <i className="fas fa-sun p-3"></i>
               <p>24 / 34</p>
             </div>
           </div>
           <footer>
-            <p class="github-link text-center mt-5 mt-md-2 mt-lg-0 pb-5 pb-lg-3 mb-0">
+            <p className="github-link text-center mt-5 mt-md-2 mt-lg-0 pb-5 pb-lg-3 mb-0">
               This page was coded by Angela Yuri and is&nbsp;
               <a
                 href="https://github.com/an-yr/weather-react"
