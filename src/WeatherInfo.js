@@ -1,7 +1,8 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
+import WeatherTemperature from "./WeatherTemperature";
 
-export default function WeatherInf(props) {
+export default function WeatherInfo(props) {
   return (
     <div>
       <h2
@@ -19,17 +20,11 @@ export default function WeatherInf(props) {
         <FormattedDate date={props.data.date} />
 
         <div className="text-center me-md-4">
-          <div className="temperature-number mt-4 mt-md-0">
-            {props.data.temperature}&nbsp;
-            <span className="degree-unity">
-              <a href="https://github.com/">ºC</a> |
-              <a href="https://github.com/">ºF</a>
-            </span>
-          </div>
-          <p className="mt-4 mt-md-0 mb-1 text-capitalize">
-            {props.data.description}
-          </p>
-          <p>Feels like: {props.data.feelsLike}º</p>
+          <WeatherTemperature
+            celsius={props.data.temperature}
+            description={props.data.description}
+            feels_celsius={props.data.feelsLike}
+          />
         </div>
       </div>
     </div>
