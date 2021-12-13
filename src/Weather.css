@@ -90,8 +90,7 @@
 }
 
 @media (max-width: 576px) {
-  .Weather nav input,
-  input:-webkit-autofill,
+  .Weather nav input[type="search"],
   .Weather nav button,
   .Weather .background-day,
   .Weather .background-night {
