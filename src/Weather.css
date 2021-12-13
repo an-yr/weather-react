@@ -90,10 +90,10 @@
 }
 
 @media (max-width: 576px) {
-  .Weather nav input,
+  .Weather nav input[type="search"],
   .Weather nav button,
-  .background-day,
-  .background-night {
+  .Weather .background-day,
+  .Weather .background-night {
     background-color: var(--black) !important;
   }
   .Weather .black-background {
