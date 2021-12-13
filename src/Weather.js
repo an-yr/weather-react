@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Message from "./Message";
-import WeahterInfo from "./WeatherInfo";
+import WeatherInfo from "./WeatherInfo";
 import "./Weather.css";
 
 export default function Weather(props) {
@@ -12,14 +12,13 @@ export default function Weather(props) {
     setWeatherData({
       ready: true,
       city: response.data.list[0].name,
-      date: new Date(response.data.list[0].dt * 1000),
+      date: new Date(),
       description: response.data.list[0].weather[0].description,
       feelsLike: Math.round(response.data.list[0].main.feels_like),
       temperature: Math.round(response.data.list[0].main.temp),
     });
   }
-  let date = new Date();
-  let hour = date.getHours();
+  let hour = new Date().getHours();
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -74,7 +73,7 @@ export default function Weather(props) {
           <Message date={weatherData.date} />
         </div>
         <div className="black-background px-2 px-md-4">
-          <WeahterInfo data={weatherData} />
+          <WeatherInfo data={weatherData} />
           <div
             className="
           d-flex
