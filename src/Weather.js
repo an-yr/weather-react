@@ -46,9 +46,12 @@ export default function Weather(props) {
             <form onSubmit={handleSubmit}>
               <input
                 className={
-                  hour >= 0 && hour < 18 ? "background-day" : "background-night"
+                  hour >= 0 && hour < 18
+                    ? "background-day px-2"
+                    : "background-night px-2"
                 }
                 type="search"
+                placeholder="Type a city..."
                 onChange={handleCityChange}
               />
               <button
