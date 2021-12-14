@@ -90,11 +90,14 @@
 }
 
 @media (max-width: 576px) {
-  .Weather nav input[type="search"],
+  .Weather nav input,
   .Weather nav button,
   .Weather .background-day,
   .Weather .background-night {
     background-color: var(--black) !important;
+  }
+  .Weather nav input {
+    -webkit-appearance: inherit;
   }
   .Weather .black-background {
     text-align: center;
