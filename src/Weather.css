@@ -98,6 +98,7 @@
   }
   .Weather nav input {
     -webkit-appearance: inherit;
+    color: white;
   }
   .Weather .black-background {
     text-align: center;
