@@ -13,6 +13,7 @@ export default function Weather(props) {
     setWeatherData({
       ready: true,
       city: response.data.list[0].name,
+      coordinates: response.data.list[0].coord,
       date: new Date(),
       description: response.data.list[0].weather[0].description,
       feelsLike: Math.round(response.data.list[0].main.feels_like),
@@ -79,7 +80,10 @@ export default function Weather(props) {
         </div>
         <div className="black-background px-2 px-md-4">
           <WeatherInfo data={weatherData} />
-          <WeatherForecast icon={weatherData.icon} />
+          <WeatherForecast
+            icon={weatherData.icon}
+            coord={weatherData.coordinates}
+          />
           <footer>
             <p className="github-link text-center mt-5 mt-md-2 mt-lg-0 pb-5 pb-lg-3 mb-0">
               This page was coded by Angela Yuri and is&nbsp;
