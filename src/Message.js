@@ -16,7 +16,7 @@ export default function Message(props) {
       <h1 className="d-none d-sm-block">
         Have a
         <br />
-        good night !
+        nice evening !
       </h1>
     );
   }
