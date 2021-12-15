@@ -37,7 +37,7 @@ export default function FormattedDate(props) {
   }
 
   return (
-    <div className="date ms-md-3">
+    <div className="date ms-md-3 d-none d-sm-block">
       <p className="mb-1 mt-5 mt-md-4">
         {hour}:{minute}
       </p>

@@ -53,8 +53,8 @@ export default function Weather(props) {
         <div
           className={
             hour >= 0 && hour < 18
-              ? "background-day py-2 px-5"
-              : "background-night color-night py-2 px-5"
+              ? "background-day py-2 px-5 pt-4 pt-sm-2"
+              : "background-night color-night py-2 px-5 pt-4 pt-sm-2"
           }
         >
           <nav className="d-flex justify-content-center justify-content-md-end">

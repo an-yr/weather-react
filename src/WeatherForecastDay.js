@@ -24,7 +24,7 @@ export default function WeatherForecastDay(props) {
         <WeatherIcon name="owm" iconId={icon()} />
       </div>
       <p>
-        {min()}º / {max()}º
+        {min()} / {max()}
       </p>
     </div>
   );
