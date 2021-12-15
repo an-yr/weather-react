@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import Message from "./Message";
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 import "./Weather.css";
 
 export default function Weather(props) {
@@ -15,6 +16,7 @@ export default function Weather(props) {
       date: new Date(),
       description: response.data.list[0].weather[0].description,
       feelsLike: Math.round(response.data.list[0].main.feels_like),
+      icon: response.data.list[0].weather[0].id,
       temperature: Math.round(response.data.list[0].main.temp),
     });
   }
@@ -77,41 +79,7 @@ export default function Weather(props) {
         </div>
         <div className="black-background px-2 px-md-4">
           <WeatherInfo data={weatherData} />
-          <div
-            className="
-          d-flex
-          text-center
-          next-days
-          mt-5 mt-md-0
-          justify-content-center justify-content-md-start
-        "
-          >
-            <div className="day-square px-lg-4 py-lg-2 px-1 py-4 py-md-2 m-lg-2 m-1">
-              <p>MON</p>
-              <i className="fas fa-sun p-3"></i>
-              <p>24 / 34</p>
-            </div>
-            <div className="day-square px-lg-4 py-lg-2 px-1 py-4 py-md-2 m-lg-2 m-1">
-              <p>TUE</p>
-              <i className="fas fa-sun p-3"></i>
-              <p>24 / 34</p>
-            </div>
-            <div className="day-square px-lg-4 py-lg-2 px-1 py-4 py-md-2 m-lg-2 m-1">
-              <p>WED</p>
-              <i className="fas fa-sun p-3"></i>
-              <p>24 / 34</p>
-            </div>
-            <div className="day-square px-lg-4 py-lg-2 px-1 py-4 py-md-2 m-lg-2 m-1">
-              <p>THU</p>
-              <i className="fas fa-sun p-3"></i>
-              <p>24 / 34</p>
-            </div>
-            <div className="day-square px-lg-4 py-lg-2 px-1 py-4 py-md-2 m-lg-2 m-1">
-              <p>FRI</p>
-              <i className="fas fa-sun p-3"></i>
-              <p>24 / 34</p>
-            </div>
-          </div>
+          <WeatherForecast icon={weatherData.icon} />
           <footer>
             <p className="github-link text-center mt-5 mt-md-2 mt-lg-0 pb-5 pb-lg-3 mb-0">
               This page was coded by Angela Yuri and is&nbsp;
