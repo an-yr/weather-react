@@ -12,13 +12,13 @@ export default function Weather(props) {
   function handleResponse(response) {
     setWeatherData({
       ready: true,
-      city: response.data.list[0].name,
-      coordinates: response.data.list[0].coord,
+      city: response.data.name,
+      coordinates: response.data.coord,
       date: new Date(),
-      description: response.data.list[0].weather[0].description,
-      feelsLike: Math.round(response.data.list[0].main.feels_like),
-      icon: response.data.list[0].weather[0].id,
-      temperature: Math.round(response.data.list[0].main.temp),
+      description: response.data.weather[0].description,
+      feelsLike: Math.round(response.data.main.feels_like),
+      icon: response.data.weather[0].id,
+      temperature: Math.round(response.data.main.temp),
     });
   }
   let hour = new Date().getHours();
@@ -32,8 +32,20 @@ export default function Weather(props) {
   }
   function search() {
     let apiKey = `a30e7a3fdc9d7f347177df5b9d2e6526`;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/find?q=${city}&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
+  }
+  function showCurrentTemp(position) {
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
+
+    let apiKey = `a30e7a3fdc9d7f347177df5b9d2e6526`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+  function showCurrentLocation(event) {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(showCurrentTemp);
   }
   if (weatherData.ready) {
     return (
@@ -71,6 +83,7 @@ export default function Weather(props) {
                 className={
                   hour >= 0 && hour < 18 ? "background-day" : "background-night"
                 }
+                onClick={showCurrentLocation}
               >
                 <i className="fas fa-map-marker-alt"></i>
               </button>
