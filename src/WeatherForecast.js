@@ -24,7 +24,11 @@ export default function WeatherForecast(props) {
       >
         {forecast.map(function (day, idx) {
           if (idx < 5) {
-            return <WeatherForecastDay data={day} key={idx} />;
+            return (
+              <div key={idx}>
+                <WeatherForecastDay data={day} />
+              </div>
+            );
           }
         })}
       </div>
