@@ -10,7 +10,7 @@ export default function WeatherInfo(props) {
           d-flex
           justify-content-md-end
           me-md-5
-          pt-md-3 pt-5
+          pt-5
           justify-content-center
         "
       >
