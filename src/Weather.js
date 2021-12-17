@@ -53,11 +53,11 @@ export default function Weather(props) {
         <div
           className={
             hour >= 0 && hour < 18
-              ? "background-day py-2 px-5 pt-5 pt-sm-2"
-              : "background-night color-night py-2 px-5 pt-5 pt-sm-2"
+              ? "background-day py-2 px-5 pt-4 pt-sm-3"
+              : "background-night color-night py-2 px-5 pt-4 pt-sm-3"
           }
         >
-          <nav className="d-flex justify-content-center justify-content-md-end pt-5">
+          <nav className="d-flex justify-content-center justify-content-md-end pt-4">
             <form onSubmit={handleSubmit}>
               <input
                 className={
@@ -98,7 +98,7 @@ export default function Weather(props) {
             coord={weatherData.coordinates}
           />
           <footer>
-            <p className="github-link text-center mt-5 mt-md-2 mt-lg-0 pb-5 pb-lg-3 mb-0">
+            <p className="github-link text-center mt-5 mt-md-2 mt-lg-0 pb-5 pb-lg-4 mb-0">
               This page was coded by Angela Yuri and is&nbsp;
               <a
                 href="https://github.com/an-yr/weather-react"
