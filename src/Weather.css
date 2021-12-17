@@ -15,7 +15,7 @@
   margin-top: 10px;
 }
 ::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.7);
   letter-spacing: 2px;
 }
 .Weather nav input:hover {
@@ -70,10 +70,12 @@
 }
 .Weather .background-night {
   background-color: var(--secondary-color);
-  border: 2px solid rgba(0, 0, 0, 0.8);
 }
 .Weather .color-night {
   color: var(--black);
+}
+.Weather .border-night {
+  border: 2px solid rgba(0, 0, 0, 0.8);
 }
 .Weather .black-background {
   background-color: var(--black);

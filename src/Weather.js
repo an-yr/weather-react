@@ -63,7 +63,7 @@ export default function Weather(props) {
                 className={
                   hour >= 0 && hour < 18
                     ? "background-day px-2"
-                    : "background-night px-2"
+                    : "background-night border-night px-2"
                 }
                 type="search"
                 placeholder="Type a city..."
@@ -73,7 +73,7 @@ export default function Weather(props) {
                 className={
                   hour >= 0 && hour < 18
                     ? "background-day mx-2"
-                    : "background-night mx-2"
+                    : "background-night border-night mx-2"
                 }
                 type="submit"
               >
@@ -81,7 +81,9 @@ export default function Weather(props) {
               </button>
               <button
                 className={
-                  hour >= 0 && hour < 18 ? "background-day" : "background-night"
+                  hour >= 0 && hour < 18
+                    ? "background-day"
+                    : "background-night border-night"
                 }
                 onClick={showCurrentLocation}
               >
