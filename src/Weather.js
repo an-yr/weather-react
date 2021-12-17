@@ -57,7 +57,7 @@ export default function Weather(props) {
               : "background-night color-night py-2 px-5 pt-4 pt-sm-2"
           }
         >
-          <nav className="d-flex justify-content-center justify-content-md-end">
+          <nav className="d-flex justify-content-center justify-content-md-end pt-5">
             <form onSubmit={handleSubmit}>
               <input
                 className={
