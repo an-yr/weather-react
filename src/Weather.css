@@ -131,4 +131,10 @@
     position: relative;
     top: 0px;
   }
+  .Weather .border-night {
+    border: 2px solid rgba(255, 255, 255, 1);
+  }
+  .Weather .background-night {
+    color: white;
+  }
 }
